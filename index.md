@@ -11,7 +11,7 @@
 #### <a href="#section5"> 5. Information Criteria and AICs</a>
 #### <a href="#section6"> 6. Challenge yourself and furthur tutorial
 
-### All the files you need for this tutorial can be downloaded from [this repository](https://github.com/EdDataScienceEES/tutorial-Harryfisher1). Click on `Clone/Download/Download ZIP` and unzip the folder, or clone the repository to your own Github account.
+### All the files you need for this tutorial can be downloaded from [this repository](https://github.com/Harryfisher1/CC-model-statscomp). Click on `Clone/Download/Download ZIP` and unzip the folder, or clone the repository to your own Github account.
 
 # __Introduction__
 __The use of statistics and models in science is crutial when looking into the relationship between two variables, assessing which have the strongest effect and how much we can trust these is at the front of Science right now. There are other tutorials looking into how to build [linear models](https://ourcodingclub.github.io/tutorials/modelling/) and [model design](https://ourcodingclub.github.io/tutorials/model-design/), but this tutorial can be used as an introduction to the statistics behind these tutorials so you can feel more confident behind how models work, and how they can be compared.__ 
@@ -45,7 +45,7 @@ install.packages(ggplot2)
 library(ggplot2) 
 
 #Remeber to make sure your working directory is set to where you saved the files first 
-setwd("C:/User/CC-1-Stat-model-compare")
+setwd("C:/User/CC-model-statscomp")
 
 twopoint <- read.csv("2point.csv")
 twopointlm <- lm(WeightLB ~ HeightIN, data = twopoint)
