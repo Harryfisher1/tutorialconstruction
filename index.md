@@ -59,6 +59,7 @@ ggplot(twopoint, aes(x = WeightLB, y = HeightIN)) + #Assigning our x and y varia
 <center><img src="{{ site.baseurl }}/2point.png" alt="Img"></center>
 
 <center><img src="{{ site.baseurl }}/2pointsum.png" alt="Img"></center>
+
 From the our plot it shows there to be a decreasing trend with height compared to weight, and with an R-squared value of 1 we can say that height is responsible for all of the variation in weight. The p-value in the summary table is N/A though, meaning there isnt even enough data points to show this relationship is significant. 
 
 So we decided to measure 2 more individuals
@@ -72,8 +73,8 @@ ggplot(fourpoint, aes(x = WeightLB, y = HeightIN)) +
   geom_point() +
   stat_smooth(method = "lm", col = "red")
 ```
-![4point.png](Images/4point.png)
 <center><img src="{{ site.baseurl }}/4point.png" alt="Img"></center>
+
 Now we see there is a possitive relationship between height and weight, with a R-squared value is 0.81, and which is still a really strong relationship, but with height still with a p value of greater than 0.05 we can not trust the value.
 
 Lets try the full data set that included 100 inividuals.
@@ -88,8 +89,8 @@ ggplot(hundredpoint, aes(x = WeightLB, y = HeightIN)) +
   geom_point() +
   stat_smooth(method = "lm", col = "red")
 ```
-![100point.png](Images/100point.png)
 <center><img src="{{ site.baseurl }}/100point.png" alt="Img"></center>
+
 Now we can see there is infact a possitive relationship between height and weight with a p-value close to 0 and a R-squared value of 0.62. It is still a strong relationship, but the decrease from the smaller samples shows there are other factors that cause variation in weight. 
 
 <a name="section3"></a>
