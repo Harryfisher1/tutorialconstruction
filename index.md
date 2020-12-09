@@ -29,7 +29,7 @@ A lot of statistics is based on the distance between the actual data points and 
 To find how well the line you have plotted fits your data, we use the R-squared value of the model. The R-squared value is calculated first by finding the variance of the mean, we will call this Var(mean) here. This is often called the sum of squares, this is calculated by finding the difference between each data point and the mean of the data points, and squaring it (we square it so the points that are below the mean don't cancel out the points that are above the mean). Now that we have done this, we find the variance of data from our line we have fitted we will call this Var(Line) here, this is done the same way as the Var(mean), but instead of finding the difference between data points and the mean, we find the difference between the data points and where our model expects them to be, on the line. Now we have Var(mean) and Var(line) we can begin calculating R-squared! The equation is: 
 
 ![R2_equation.png](Images/R2_equation.png)
-
+<center><img src="{{ site.baseurl }}/R2_equation" alt="Img"></center>
 By dividing by the variance in the mean means the value will be somewhere between 0 and 1, as the variation from the line will never be greater than the variation around the mean , and it will never be less than 0. With it being between 0 and 1, it means we can treat R-squared as a percentage. If the R-squared value is 0.85 then, there is 85% less variation around the line the model fitted, than the mean, we describe this as the relationship between the explanatory variable and response variable explains 85% of the variation. The acceptable value for R-squared is often disputed and depends on your data, if  you get a R-squared value of 0.4, then your explanatory variable explains 40% of the variation, that's good if there are 100s of other things accounting for the other 60% but not good if there's just one thing making up that variation. 
 
 You need to be careful however! If we had just two data points then the line would go from one point to the other, meaning there would be no distance between your datapoints and the line, meaning no residuals, meaning an R-squared value of 1.0! Great, we have found there to be a 100% relationship between our variables and are ready  to rock the scientific communities world! Not quite. Obviously this cant be trusted, and to prove whether we can trust our R2 value we look at the P-value of our model. The p-value takes the number of samples into consideration, and gives you a value between 0 and 1. To have confidence in our model and the R squared value we have obtained we have to meet a certain criteria, which within the scientific community this is __a p-value below 0.05__. 
@@ -57,9 +57,9 @@ ggplot(twopoint, aes(x = WeightLB, y = HeightIN)) + #Assigning our x and y varia
 
 ```
 ![2point.png](Images/2point.png)
-
+<center><img src="{{ site.baseurl }}/2point.png" alt="Img"></center>
 ![2pointsum](Images/2pointsum.png)
-
+<center><img src="{{ site.baseurl }}/2pointsum" alt="Img"></center>
 From the our plot it shows there to be a decreasing trend with height compared to weight, and with an R-squared value of 1 we can say that height is responsible for all of the variation in weight. The p-value in the summary table is N/A though, meaning there isnt even enough data points to show this relationship is significant. 
 
 So we decided to measure 2 more individuals
@@ -74,7 +74,7 @@ ggplot(fourpoint, aes(x = WeightLB, y = HeightIN)) +
   stat_smooth(method = "lm", col = "red")
 ```
 ![4point.png](Images/4point.png)
-
+<center><img src="{{ site.baseurl }}/4point.png" alt="Img"></center>
 Now we see there is a possitive relationship between height and weight, with a R-squared value is 0.81, and which is still a really strong relationship, but with height still with a p value of greater than 0.05 we can not trust the value.
 
 Lets try the full data set that included 100 inividuals.
@@ -90,7 +90,7 @@ ggplot(hundredpoint, aes(x = WeightLB, y = HeightIN)) +
   stat_smooth(method = "lm", col = "red")
 ```
 ![100point.png](Images/100point.png)
-
+<center><img src="{{ site.baseurl }}/100point.png" alt="Img"></center>
 Now we can see there is infact a possitive relationship between height and weight with a p-value close to 0 and a R-squared value of 0.62. It is still a strong relationship, but the decrease from the smaller samples shows there are other factors that cause variation in weight. 
 
 <a name="section3"></a>
@@ -102,7 +102,7 @@ To use a linear model there are assumptions that need to be met first, they are 
 Numbers can be misleading, this is illustrated well by the Anscombe's quartet below. Each of the data sets look completely different, yet all have the same regression line and mean value for X and Y.
 
 ![Anscombe.png](Images/Anscombe.png)
-
+<center><img src="{{ site.baseurl }}/Anscombe.png" alt="Img"></center>
 Therefore the assumptions for linear models mean that when linear models are constructed they are done so they truely give valuable insight to the data.
 
 ### 1.Linearity: The relationship between X and the mean of Y is linear.
@@ -114,8 +114,9 @@ Models wil be misleading if the data isnt apporixmately linear. One way to solve
 One of the assumptions of linear models is that the data is homoscedastic, or simply put, the explanatory variable does not have an effect on the margin of error around a data set. Again imagine our straight line running through data points, as we go along the x axis and the distance between the the data point and the line remains constant, we would describe the data as homoscedastic, as all the error is the same. However, if as X increases we see saw that the data points appear to be getting further and further from the line, then we would describe the data as heteroscedastic, as the error is not consistent at all points for our model. It is also important to remember this does not just happen when there is a high value of X, heteroscedasticity can occur at any given value.
 
 ![Homoscedasticity-300x196.png](Images/Homoscedasticity-300x196.png)
+<center><img src="{{ site.baseurl }}/Homoscedasticity-300x196.png" alt="Img"></center>
 ![Heteroscedasticity-300x193.png](Images/Heteroscedasticity-300x193.png)
-
+<center><img src="{{ site.baseurl }}/Heteroscedasticity-300x193.png" alt="Img"></center>
 ### 3.Independence: Observations are independent of each other.
 
 Residuals should not have any correlation amoung themselves. Ultimetly we are trying to avoid the second error correlating with the first error point.
@@ -148,7 +149,7 @@ This shows us the headings for each column as well as the first 6 rows. The Grou
 hist(Grouse$Grouse)
 ```
 ![hist_grouse.png](Images/hist_grouse.png)
-
+<center><img src="{{ site.baseurl }}/hist_grouse.png" alt="Img"></center>
 The data seems to be slightly left skewed, but fairly normally distributed.
 
 Now we have done this we can start constructing our Generalised linear models to see how our different variables impact grouse abundance. First we will construct a a model with each variable seperately, allowing us to asses which model can explain our variation the most. In ecological and environmental studies, it is important that this is not the approach used when analysising your data. Always try to construct models by using the parameters you set out at the start of your study, and make the most ecological sense. Trying every variable in every combination to obtain a significant result is a hot topic in the world of statistics, and is refered to as p-hacking. So keep this in mind when using these model comparisons, they are good to explore your data and see how the variables interact within your data sets, but models should be built off of existing ecological knowledge. Anyway, now the disclaimer is out of the way, we can plot our models to investigate the different impact of our variables.
@@ -164,7 +165,7 @@ Here we use the glm function in r to fit a generalized linear model, followed by
 When we run `model1` it calls on our model, and gives us values for our coefficients and our total degrees of freedom, which is our sample units minus one, and our residual degrees of freedom, which is the number of samples minus the number of parameters we have set, in our case 2. You might notice that we have not estimated any variance or error, this is beacuse we are using the poisson distributions, where the variance is estimated to be approximately the mean. However if your variance is greater than the mean you have what is called __over dispersion__ (this word is given to models that show greater variability in a datset than is expected), to check for this we find our `residual deviance` and divide it by our `residual degrees of freedom`, if the value is greater than 1 then the model suffers from over dispersion. 
 
 ![Mod1.png](Images/Mod1.png)
-
+<center><img src="{{ site.baseurl }}/Mod1.png" alt="Img"></center>
 `19.47` / `23` = `0.846`. Hurray our model doesnt suffer from over dispersion! 
 
 Now we make models using the other variables as the independent variable, checking each as we go.
@@ -196,7 +197,7 @@ To use information criteria in R we use the `AIC()` with our models within the b
 AIC(modelNull, model1, model2, model3)
 ```
 ![AIC1.png](Images/AIC1.png)
-
+<center><img src="{{ site.baseurl }}/AIC1.png" alt="Img"></center>
 This table shows the AIC values for each of the models. The actual value of the AIC isnt important, as this can be a range of values, even negative! Whats more important is the difference between the values, if the difference between the AICs is between 0-2, the models are eqivelent, 2-4 somewhat differnt models, 4-7 the models are considerably different, 7-10 the models are hugely different. From our results we can see that model 1 & 2 are below our null model, but model 3 is not, therfore vegetation can be disregarded as not explaining our variation. The model with the lowest AIC appears to be the model2 with carbon content as the independent variable, followed by habitat type. To look at these more we can combine them into the same multivariate model and run AIC on these. If you want to learn more about mixed models you can check out the tutorial [here](https://ourcodingclub.github.io/tutorials/mixed-models/#FERE).
 
 ```r
@@ -223,7 +224,7 @@ ggplot(Grouse, aes(x = Carbon, y = Grouse)) +
 ```
 
 ![glmplot.png](Images/glmplot.png)
-
+<center><img src="{{ site.baseurl }}/glmplot.png" alt="Img"></center>
 There you have it, you have conduced a model comparison on an abundance count, and found Carbon to be the independent variable to explain the most variation in your data. You can now go onto use this information to pose a more specific hypothesis looking into how carbon content in a habitat influences grouse populations.
 
 <a name="section6"></a>
