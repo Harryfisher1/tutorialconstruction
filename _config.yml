@@ -1,2 +1,77 @@
 title: (Introduction to model statistics and comparison)
 description: (The use of statistics and models in science is crutial when looking into the relationship between two variables, assessing which have the strongest effect and how much we can trust these is at the front of Science right now. There are other tutorials looking into how to build linear models and model design, but this tutorial can be used as an introduction to the statistics behind these tutorials so you can feel more confident behind how models work, and how they can be compared.)
+# Exclude files from Jekyll build
+exclude:
+    - README.md
+    - LICENSE
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+
+# Installed gems
+plugins: 
+    - jekyll-target-blank
+    - jekyll-redirect-from
+
+# Gem settings
+
+# Site settings
+encoding: utf-8
+lang: en-GB
+title: "Coding Club"
+logo: "/assets/img/logos/logo_hex.svg"
+description: ""
+baseurl: ""
+url: "https://ourcodingclub.github.io"
+repo: "https://github.com/ourcodingclub/ourcodingclub.github.io"
+email: "ourcodingclub@gmail.com"
+google_analytics: UA-92956541-1
+css_inline: false 
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+  auto_ids: true 
+
+# Favicons 
+favicons: 
+    16: '/assets/img/logos/logo_hex@16px.png'
+    32: '/assets/img/logos/logo_hex@32px.png'
+    64: '/assets/img/logos/logo_hex@64px.png'
+    128: '/assets/img/logos/logo_hex@128px.png'
+    256: '/assets/img/logos/logo_hex@256px.png'
+    512: '/assets/img/logos/logo_hex@512px.png'
+    1024: '/assets/img/logos/logo_hex@1024px.png'
+
+# Site navigation
+navigation_header:
+- title: Home
+  url: /
+- title: Tutorials
+  url: /tutorials.html
+- title: Course
+  url: /course.html
+- title: Team
+  url: /team.html
+- title: Get involved
+  url: /involve.html
+- title: Links
+  url: /links.html
+- title: Contact
+  url: /contact.html
+
+# Define collections
+collections:
+    tutorials:
+        output: true
+        permalink: /tutorials/:path/
+    course:
+        output: true
+        permalink: /course/:path/
+    DL:
+        output: true
+        permalink: /DL/:path/
+    posts:
+        output: true
+        permalink: /posts/:path/
